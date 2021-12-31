@@ -1,0 +1,11 @@
+# Docker Compose のバージョンを指定します
+version: "3.9"
+# 実行するコンテナを記述していく
+services:
+  # コンテナ名
+  app:
+    # Dockerfile のあるディレクトリのパスを指定
+    build: ./infra/php
+    # ./backend ディレクトリをappサービスのコンテナ内 /work へマウント
+    volumes:
+      - ./backend:/work
