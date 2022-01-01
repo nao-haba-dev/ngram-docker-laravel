@@ -9,3 +9,16 @@ services:
     # ./backend ディレクトリをappサービスのコンテナ内 /work へマウント
     volumes:
       - ./backend:/work
+
+  # コンテナ名
+  web:
+    # コンテナを起動させるイメージを指定します
+    image: nginx:1.20-alpine
+    # nginxへ外(ホスト側)からコンテナ内へアクセスさせるため公開用のポート
+    ports:
+      - 8080:80
+    # ホスト側にあるディレクトリ、ファイルをコンテナ内へマウント
+    volumes:
+      - ./backend:/work
+      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    working_dir: /work
