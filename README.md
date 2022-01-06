@@ -5,7 +5,6 @@ https://qiita.com/naoki-haba/items/ace7a5d1e0d9d72ed040
 # セットアップ
 
 ```bash
-cd docker-laravel
 docker-compose up -d
 docker-compose exec app bash
 composer install
